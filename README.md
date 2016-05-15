@@ -47,7 +47,7 @@ To execute and test Truth Finder on top of Rheem, you will need to run the follo
 
 #### ScalableTruthFinderMain.java
 
-#### FullyScalableTruthFinderMaim.java 
+#### FullyScalableTruthFinderMain.java 
 
 In these main classes are specified the input parameters of the algorithm, in particular the claim dataset folder, the expected accuracy (or stopping criteria), and the initial trustworthiness score.
 
