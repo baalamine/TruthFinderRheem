@@ -12,10 +12,10 @@ Basically, we will rely on Rheem, an agile distributed data processing framework
 This function reads a string of attribute values separated by tab and constructs the corresponding source claim object.
 
 ### ConfidenceComputation procedure
-This function considers as input a bucket of source claims and compute the confidence score of each possible attribute value based on its sources' trustworthiness level
+This function considers as input a bucket of source claims and compute the confidence score of each possible attribute value based on its sources' trustworthiness level.
 
 ### TrustworthinessUpdate procedure
-This function considers source claims along with their confidence scores and updates the current trustworthiness score of each source by accounting for the newly computed confidence values
+This function considers source claims along with their confidence scores and updates the current trustworthiness score of each source by accounting for the newly computed confidence values.
 
 ### ConvergenceTesting procedure
 This function takes as input the cosine similarity of the current and previous source trustworthiness scores and checks if a given user accuracy is reached. When such a accuracy is reached, the process ends.
@@ -38,7 +38,8 @@ First, clone the github repository in local containing the source codes of the t
 ### Requirements and dependencies
 
 To execute Truth Finder on top of Rheem, one has to have Java version 7 or later and maven installed. 
-All the dependencies are defined in a pom file 
+All the jar dependencies are defined in a pom file. Those dependencies need to be install to properly
+run the application.
 
 ### Main classes
 
