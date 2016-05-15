@@ -111,8 +111,8 @@ public class FullyScalableTruthFinderRheemPlan extends RheemJob implements Seria
 			DataSet<?,?,?> transformedDataset = transformAgent.getDataSet() ;
 		
 			LoopDataAgent<?> finalAgent = LoopDataAgent.createAgent(transformedDataset, context, new LoopWrapper(convergenceOp))
-	            	   .map(new ComputeWrapper(confidenceOp), MapOptions.PAIR_OUT) //flattening the output of compute 
-	            	   .flatMap(new transformLocal(), FlatMapOptions.PAIR_OUT)
+	            	   .map(new ComputeWrapper(confidenceOp), MapOptions.PAIR_OUT)  
+	            	   .flatMap(new transformLocal(), FlatMapOptions.PAIR_OUT) //flattening the output of compute
 	            	   .reduce(new ReduceByKeyWrapper1())
 	                 .map(new UpdateWrapper(trustOp))
 	                 .evaluate();
@@ -173,7 +173,7 @@ public class FullyScalableTruthFinderRheemPlan extends RheemJob implements Seria
 		public KeyValuePair<Integer, KeyValuePair<Source, List<SourceClaim>>> apply(RheemContext context, Object... args) 
 		{
 			// TODO Auto-generated method stub
-			//System.out.println ("Reduce Transform") ;
+			System.out.println ("Reduce Transform") ;
 			//System.out.println(args.length) ;
 			KeyValuePair<?,?> kv1 = (KeyValuePair<?, ?>) args[0] ;
 			//System.out.println(kv1.key) ;
@@ -191,17 +191,14 @@ public class FullyScalableTruthFinderRheemPlan extends RheemJob implements Seria
 		}
 		
 	}
-	static class transformLocal extends LogicalOperatorWrapper<List<Tuple2<String, Tuple2<Source, List<SourceClaim>>>>>
+	static class transformLocal extends LogicalOperatorWrapper<List<KeyValuePair<Integer, KeyValuePair<Source, List<SourceClaim>>>>>
 	{
 
 		@Override
-		public List<Tuple2<String, Tuple2<Source, List<SourceClaim>>>> apply(RheemContext arg0, Object... args) {
+		public List<KeyValuePair<Integer, KeyValuePair<Source, List<SourceClaim>>>> apply(RheemContext arg0, Object... args) {
 			// TODO Auto-generated method stub
 			System.out.println("Transform Local op") ;
-			//System.out.println("Length array ==> " + args.length);
-			//System.out.println(args[0].getClass().getName()) ;
-			//System.out.println("Length array 0 ==> " + ((List)args[0]).size());
-			return (List<Tuple2<String, Tuple2<Source, List<SourceClaim>>>>) args[0] ;
+			return (List<KeyValuePair<Integer, KeyValuePair<Source, List<SourceClaim>>>>) args[0] ;
 		}
 		
 	}
