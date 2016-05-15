@@ -94,11 +94,11 @@ public class ConfidenceComputation extends Compute<Iterable<KeyValuePair<Integer
 			this.computeConfidenceWithSimilarity(bucketList, similarityConstant, base_sim) ;
 			this.computeConfidence(bucketList, damping_factor) ;
 		
+		
 			List<SourceClaim> b = bucketList.stream()
 					.map( d -> d.getClaims() )
 					.flatMap( l -> l.stream() )
 					.collect(Collectors.toList()) ;
-		
 			
 			List<KeyValuePair<Integer, KeyValuePair<Source, List<SourceClaim>>>> claims = new ArrayList<KeyValuePair<Integer, KeyValuePair<Source, List<SourceClaim>>>>() ;
 			for (SourceClaim claim : b) 
