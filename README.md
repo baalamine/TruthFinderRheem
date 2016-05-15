@@ -33,7 +33,7 @@ In this version, all the different functions can be distributed. This version is
 ## Usage
 
 ### Clone Github
-First, clone the github repository in local containing the source codes of the two implementation versions. Through https, it is done by the following command: #### git clone https://github.com/baalamine/TruthFinderRheem.git
+First, clone the github repository in local containing the source codes of the two implementation versions. Through https, it is done by the following command: git clone https://github.com/baalamine/TruthFinderRheem.git
 
 ### Requirements and dependencies
 
